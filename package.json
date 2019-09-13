@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "author": "Toshiki Kamei",
+  "author": "",
   "license": "ISC",
   "scripts": {
     "local": "export NODE_ENV=local && webpack-dev-server --mode development --port 8000 --contentBase=dist",
