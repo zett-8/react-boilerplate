@@ -9,7 +9,7 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
 
-  entry: './src/index.jsx',
+  entry: './src/index.js',
 
   output: {
     filename: '[name]-[hash].js',
