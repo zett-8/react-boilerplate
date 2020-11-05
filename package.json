@@ -7,8 +7,8 @@
   "license": "ISC",
   "scripts": {
     "local": "export NODE_ENV=local && webpack serve --mode development --port 8000",
-    "dev": "export NODE_ENV=development && webpack-dev-server --mode development --port 8000 --contentBase=dist",
-    "prod": "export NODE_ENV=production && webpack-dev-server --mode development --port 8000 --contentBase=dist",
+    "dev": "export NODE_ENV=development && webpack serve --mode development --port 8000",
+    "prod": "export NODE_ENV=production && webpack serve --mode development --port 8000",
     "build:prod": "export NODE_ENV=production && webpack --mode production",
     "build:dev": "export NODE_ENV=development && webpack --mode development",
     "build:local": "export NODE_ENV=local && webpack --mode development",
