@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 module.exports = {
@@ -8,18 +9,18 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
 
-  entry: {
-    main: ['babel-polyfill', path.resolve(__dirname, 'src/index.jsx')]
-  },
+  entry: './src/index.jsx',
 
   output: {
-    path: path.resolve(__dirname, 'dist'),
     filename: '[name]-[hash].js',
-    // publicPath: './'
+    path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: 'images/[hash][ext]',
   },
 
   devServer: {
-    historyApiFallback: true
+    contentBase: './dist',
+    historyApiFallback: true,
+    hot: true,
   },
 
   devtool: process.env.NODE_ENV === 'production' ? false : 'source-map',
@@ -29,21 +30,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: '/node_modules/',
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['env', 'react'],
-              plugins: ['transform-class-properties']
-            }
-          },
-          // {
-          //   loader: 'react-svg-loader',
-          //   options: {
-          //     jsx: true // true outputs JSX tags
-          //   }
-          // }
-        ]
+        use: 'babel-loader'
       },
       {
         test: /\.(css|scss)$/,
@@ -57,16 +44,15 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg|gif)$/,
-        loader: 'file-loader',
-        options: {},
-      },
-      {
         include: path.resolve(__dirname, 'src'),
         test: /\.json?$/,
         use: {
           loader: 'json-loader',
         },
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        type: 'asset/resource'
       },
     ]
   },
@@ -83,6 +69,7 @@ module.exports = {
   plugins: [
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({ template: './src/index.html' }),
+    new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
