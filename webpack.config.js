@@ -5,10 +5,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.ts', '.tsx', '.json'],
   },
 
-  entry: './src/index.js',
+  entry: './src/index.tsx',
 
   output: {
     filename: '[name]-[hash].js',
@@ -26,9 +26,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|ts|tsx)$/,
         exclude: '/node_modules/',
-        use: 'babel-loader',
+        use: 'ts-loader',
       },
     ],
   },

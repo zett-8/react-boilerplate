@@ -1,18 +1,23 @@
-import React from 'react'
+import React, { ErrorInfo } from 'react'
 
-class ErrorBoundary extends React.Component {
-  constructor(props) {
+interface State {
+  error: Error | null
+  errorInfo: ErrorInfo | null
+}
+
+class ErrorBoundary extends React.Component<any, State> {
+  constructor(props: any) {
     super(props)
     this.state = {
       error: null,
-      errorInfo: null
+      errorInfo: null,
     }
   }
 
-  componentDidCatch(error, errorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     this.setState({
       error,
-      errorInfo
+      errorInfo,
     })
   }
 
@@ -22,7 +27,7 @@ class ErrorBoundary extends React.Component {
         <div>
           <p>Error occurred</p>
           {this.state.error && this.state.error.toString()} <br />
-          {this.state.errorInfo.componentStack}
+          {this.state.errorInfo?.componentStack}
         </div>
       )
     }
