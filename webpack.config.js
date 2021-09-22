@@ -5,7 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
 
   entry: './src/index.js',
@@ -17,7 +17,6 @@ module.exports = {
   },
 
   devServer: {
-    contentBase: './dist',
     historyApiFallback: true,
     hot: true,
   },
@@ -29,16 +28,16 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: '/node_modules/',
-        use: 'babel-loader'
+        use: 'babel-loader',
       },
-    ]
+    ],
   },
 
   optimization: {
     splitChunks: {
       name: 'vendor',
-      chunks: 'initial'
-    }
+      chunks: 'initial',
+    },
   },
 
   plugins: [
@@ -46,7 +45,7 @@ module.exports = {
     new HtmlWebpackPlugin({ template: './src/index.html' }),
     new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
-  ]
+  ],
 }
