@@ -1,12 +1,12 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import ErrorBoundary from './providers/errorBoundary'
-import Page404 from './components/404'
+import { ErrorBoundary } from './providers/errorBoundary'
+import { Page404 } from './components/404'
 
 import { LandingPageContainer } from './containers/landing'
 
-export default () => (
+export const Router = () => (
   <ErrorBoundary>
     <BrowserRouter>
       <Switch>
