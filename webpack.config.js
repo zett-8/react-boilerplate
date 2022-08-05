@@ -1,7 +1,7 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const path = require('path') // eslint-disable-line
+const webpack = require('webpack') // eslint-disable-line
+const HtmlWebpackPlugin = require('html-webpack-plugin') // eslint-disable-line
+const { CleanWebpackPlugin } = require('clean-webpack-plugin') // eslint-disable-line
 
 module.exports = {
   resolve: {
@@ -14,13 +14,6 @@ module.exports = {
     filename: '[name]-[fullhash].js',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'images/[fullhash][ext]',
-  },
-
-  devServer: {
-    host: '0.0.0.0',
-    port: 8000,
-    historyApiFallback: true,
-    hot: true,
   },
 
   devtool: process.env.NODE_ENV === 'production' ? false : 'source-map',
@@ -50,4 +43,11 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
   ],
+
+  devServer: {
+    host: '0.0.0.0',
+    port: 8000,
+    historyApiFallback: true,
+    hot: true,
+  },
 }
