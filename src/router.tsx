@@ -1,10 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import { ErrorBoundary } from './providers/errorBoundary'
 import { Page404 } from './components/404'
-
 import { LandingPageContainer } from './containers/landing'
+import { ErrorBoundary } from './providers/errorBoundary'
 
 export const Router = () => (
   <ErrorBoundary>

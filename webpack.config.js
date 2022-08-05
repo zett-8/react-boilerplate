@@ -1,7 +1,7 @@
-const path = require('path') // eslint-disable-line
-const webpack = require('webpack') // eslint-disable-line
-const HtmlWebpackPlugin = require('html-webpack-plugin') // eslint-disable-line
-const { CleanWebpackPlugin } = require('clean-webpack-plugin') // eslint-disable-line
+const path = require('path') //eslint-disable-line
+const webpack = require('webpack') //eslint-disable-line
+const HtmlWebpackPlugin = require('html-webpack-plugin') //eslint-disable-line
+const { CleanWebpackPlugin } = require('clean-webpack-plugin') //eslint-disable-line
 
 module.exports = {
   resolve: {
@@ -12,8 +12,8 @@ module.exports = {
 
   output: {
     filename: '[name]-[fullhash].js',
-    path: path.resolve(__dirname, 'dist'),
-    assetModuleFilename: 'images/[fullhash][ext]',
+    path: path.resolve(__dirname, 'public'),
+    assetModuleFilename: 'assets/[name][ext]',
   },
 
   devtool: process.env.NODE_ENV === 'production' ? false : 'source-map',
@@ -24,6 +24,14 @@ module.exports = {
         test: /\.(ts|tsx)$/,
         exclude: '/node_modules/',
         use: 'ts-loader',
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(jpg|ttf|otf)/,
+        type: 'asset/resource',
       },
     ],
   },

@@ -1,9 +1,12 @@
 import React from 'react'
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { Router } from './router'
 
+import './styles/reset.css'
+import './styles/global.css'
+
 if (process.env.NODE_ENV !== 'production') {
-  console.log(`==== connecting to ${process.env.NODE_ENV} server ====`)
+  console.log(`==== ${process.env.NODE_ENV} ====`)
 }
 
-render(<Router />, document.getElementById('root'))
+createRoot(document.body).render(<Router />)
