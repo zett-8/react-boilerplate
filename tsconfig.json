@@ -2,14 +2,17 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "sourceMap": true,
-    "noImplicitAny": true,
-    "module": "es6",
-    "target": "es2015",
-    "jsx": "react",
-    "allowJs": true,
+    "target": "es6",
+    "module": "esnext",
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "strict": true
+    "lib": ["dom", "esnext"],
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "allowJs": false,
+    "jsx": "react",
+    "noEmit": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true
   }
 }

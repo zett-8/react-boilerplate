@@ -1,17 +1,13 @@
 {
-  "name": "",
+  "name": "react",
   "version": "1.0.0",
-  "description": "",
+  "description": "react",
   "main": "index.js",
-  "author": "",
+  "author": "zett-8",
   "license": "ISC",
   "scripts": {
-    "local": "export NODE_ENV=development && webpack serve --mode development --port 8000",
-    "dev": "export NODE_ENV=development && webpack serve --mode development --port 8000",
-    "prod": "export NODE_ENV=production && webpack serve --mode development --port 8000",
+    "start": "export NODE_ENV=development && webpack serve --mode development",
     "build:prod": "export NODE_ENV=production && webpack --mode production",
-    "build:dev": "export NODE_ENV=development && webpack --mode development",
-    "build:local": "export NODE_ENV=local && webpack --mode development",
     "lint": "eslint . --quiet",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json}\""
   },

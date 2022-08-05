@@ -11,12 +11,14 @@ module.exports = {
   entry: './src/index.tsx',
 
   output: {
-    filename: '[name]-[hash].js',
+    filename: '[name]-[fullhash].js',
     path: path.resolve(__dirname, 'dist'),
-    assetModuleFilename: 'images/[hash][ext]',
+    assetModuleFilename: 'images/[fullhash][ext]',
   },
 
   devServer: {
+    host: '0.0.0.0',
+    port: 8000,
     historyApiFallback: true,
     hot: true,
   },
@@ -26,7 +28,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|ts|tsx)$/,
+        test: /\.(ts|tsx)$/,
         exclude: '/node_modules/',
         use: 'ts-loader',
       },
